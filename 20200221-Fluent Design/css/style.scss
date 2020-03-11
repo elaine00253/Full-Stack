@@ -1,0 +1,1214 @@
+$textColor1: white;
+$textColor2: black;
+$textSizeNormal: 16px;
+$backgroundColor: black;
+$transitionLong: 0.6s;
+$transitionShort: 0.2s;
+
+@mixin myFlex($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin setWidth($hasPadding: true) {
+    //設定Inner寬度
+    //卡片區域的Inner不用加padding
+    @media screen and (min-width: 1681px) {
+        width: 1536px;
+    }
+    @media screen and (max-width: 1680px) {
+        width: 1336px;
+    }
+    @media screen and (max-width: 1460px) {
+        width: 1136px;
+    }
+    @media screen and (max-width: 1280px) {
+        width: 960px;
+    }
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+        @if ($hasPadding) {
+            padding: 0 30px;
+        }
+    }
+}
+
+* {
+    font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI",
+        -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: $backgroundColor;
+}
+a {
+    text-decoration: none;
+    transition: $transitionShort;
+}
+p {
+    margin: 0;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    margin: 0;
+}
+h2 {
+    margin: 0;
+}
+
+.HeaderInner {
+    @include setWidth();
+    margin: 0 auto;
+    @include myFlex();
+
+    .Logo {
+        width: 190px;
+        height: 48px;
+        @include myFlex(flex-start);
+
+        @media screen and (max-width: 1024px) {
+            width: 60px;
+        }
+        @media screen and (max-width: 670px) {
+            width: 30px;
+        }
+
+        svg {
+            @include myFlex();
+
+            &:hover rect:nth-child(1) {
+                fill: rgb(242, 80, 34);
+            }
+            &:hover rect:nth-child(2) {
+                fill: rgb(127, 186, 0);
+            }
+            &:hover rect:nth-child(3) {
+                fill: rgb(0, 164, 239);
+            }
+            &:hover rect:nth-child(4) {
+                fill: rgb(255, 185, 0);
+            }
+
+            .microsoft_logo {
+                transition: $transitionShort;
+                fill: white;
+            }
+        }
+    }
+    h1 {
+        height: 48px;
+        @include myFlex();
+
+        a {
+            font-size: $textSizeNormal;
+            line-height: 49px;
+            color: $textColor1;
+
+            &:hover,
+            &:focus {
+                color: rgb(0, 120, 212);
+            }
+        }
+    }
+    .MenuRight {
+        height: 48px;
+        flex: 1;
+        padding: 0 120px 0 420px;
+        @include myFlex();
+
+        @media screen and (max-width: 1460px) {
+            padding: 0 60px 0 120px;
+        }
+        @media screen and (max-width: 1024px) {
+            padding: 0 0 0 120px;
+        }
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+
+        ul {
+            width: 100%;
+            @include myFlex(space-between);
+
+            a {
+                font-size: $textSizeNormal;
+                line-height: 49px;
+                color: $textColor1;
+
+                &.web:hover,
+                &.web:focus {
+                    color: rgb(37, 142, 222);
+                }
+                &.windows:hover,
+                &.windows:focus {
+                    color: rgb(79, 229, 255);
+                }
+                &.ios:hover,
+                &.ios:focus {
+                    color: rgb(207, 143, 255);
+                }
+                &.android:hover,
+                &.android:focus {
+                    color: rgb(105, 229, 110);
+                }
+            }
+        }
+    }
+    .BtnMenu {
+        display: none;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+            color: $textColor1;
+            background-color: $backgroundColor;
+            margin-left: auto;
+
+            .fa-bars {
+                font-size: 30px;
+                line-height: 48px;
+                -webkit-text-stroke: 2px $backgroundColor; //設定線條粗細
+            }
+        }
+    }
+}
+
+main {
+    overflow: hidden;
+
+    .Introduction {
+        width: 100%;
+        margin: 145px 0 60px;
+
+        @media screen and (max-width: 670px) {
+            margin: 0 0 30px;
+        }
+
+        .IntroductionInner {
+            @include setWidth();
+            display: flex;
+            margin: 0 auto;
+
+            .IntroductionContent {
+                width: 410px;
+                @media screen and (max-width: 960px) {
+                    width: 60%;
+                }
+                @media screen and (max-width: 670px) {
+                    width: 100%;
+                }
+
+                h2 {
+                    font-size: 64px;
+                    line-height: 80px;
+                    color: rgb(79, 229, 255);
+                    margin: 0 0 0 -6px;
+
+                    @media screen and (max-width: 767px) {
+                        font-size: 48px;
+                        line-height: 60px;
+                    }
+                    @media screen and (max-width: 670px) {
+                        margin: 60px 0 30px;
+                    }
+                }
+                .IntroductionDescription {
+                    width: 100%;
+                    max-width: 352px;
+                    font-size: $textSizeNormal;
+                    line-height: 24px;
+                    color: $textColor1;
+                    margin: 100px 0 30px;
+
+                    @media screen and (max-width: 767px) {
+                        margin: 60px 0 30px;
+                    }
+
+                    p {
+                        margin: 0 0 24px;
+                    }
+                }
+            }
+        }
+        .IntroductionMedia {
+            text-align: center;
+            position: relative;
+            flex: 1 1 auto;
+
+            @media screen and (max-width: 1280px) {
+                width: 50%;
+                padding: 0 40px;
+            }
+            @media screen and (max-width: 960px) {
+                width: 40%;
+                padding: 0 0 0 30px;
+            }
+            @media screen and (max-width: 670px) {
+                display: none;
+            }
+
+            .LeftLine {
+                position: absolute;
+                top: -15px;
+                right: 180px;
+                @media screen and (max-width: 1460px) {
+                    top: 15px;
+                    right: 36px;
+                }
+                @media screen and (max-width: 1280px) {
+                    display: none;
+                }
+            }
+            .RightLine {
+                position: absolute;
+                bottom: 155px;
+                left: 180px;
+                @media screen and (max-width: 1460px) {
+                    bottom: 120px;
+                    left: 30px;
+                }
+                @media screen and (max-width: 1280px) {
+                    display: none;
+                }
+            }
+            .Lines {
+                @media screen and (max-width: 1280px) {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    .Platforms {
+        width: 100%;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 50vw;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: rgb(34, 128, 200);
+        }
+
+        &::after {
+            content: "";
+            width: 50vw;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            background-color: rgb(95, 207, 99);
+        }
+
+        .PlatformsInner {
+            @include setWidth(false);
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+
+            .PlatformsCard {
+                width: 25%;
+                height: 384px;
+                display: flex;
+                flex-direction: column;
+                @media screen and (max-width: 1024px) {
+                    width: 50%;
+                    height: 320px;
+                }
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                }
+                @media screen and (max-width: 500px) {
+                    height: auto;
+                }
+
+                &:nth-child(1) {
+                    background-color: rgb(37, 142, 222);
+                    &:hover {
+                        background-color: rgb(12, 117, 197);
+                    }
+                }
+                &:nth-child(2) {
+                    background-color: rgb(79, 229, 255);
+                    &:hover {
+                        background-color: rgb(54, 204, 230);
+                    }
+                }
+                &:nth-child(3) {
+                    background-color: rgb(207, 143, 255);
+                    &:hover {
+                        background-color: rgb(182, 118, 230);
+                    }
+                }
+                &:nth-child(4) {
+                    background-color: rgb(105, 229, 110);
+                    &:hover {
+                        background-color: rgb(80, 204, 85);
+                    }
+                }
+
+                .PlatformsIcon {
+                    min-height: 96px;
+                    width: 100%;
+                    text-align: left;
+                    flex: 1;
+                    padding: 26px;
+                }
+                .PlatformsContent {
+                    height: 100px;
+                    width: 100%;
+                    padding: 0 26px;
+                    @media screen and (max-width: 1460px) {
+                        height: 180px;
+                    }
+                    @media screen and (max-width: 1024px) {
+                        height: auto;
+                        padding: 0 30px;
+                    }
+
+                    h2 {
+                        color: $textColor2;
+                        font-size: 32px;
+                        line-height: 40px;
+                        margin: 0 0 26px;
+                    }
+                    p {
+                        color: $textColor2;
+                        font-size: $textSizeNormal;
+                        line-height: 20px;
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                }
+                .PlatformsAction {
+                    height: 48px;
+                    width: 100%;
+                    text-align: left;
+                    padding: 0 26px 10px;
+                    @include myFlex(flex-start);
+
+                    @media screen and (max-width: 1280px) {
+                        padding: 0 30px;
+                    }
+
+                    img {
+                        margin: 0 16px 0 0;
+                    }
+                    span {
+                        font-size: $textSizeNormal;
+                        font-weight: normal;
+                        font-family: "Segoe UI Mono", mono;
+                        color: $textColor2;
+                    }
+                }
+            }
+        }
+    }
+    .EveryDevice {
+        width: 100%;
+        min-height: 768px;
+        background: url(../img/msft-verge-fluent.jpg) center / cover no-repeat
+            fixed rgb(204, 204, 204);
+
+        @media screen and (max-width: 960px) {
+            background-attachment: unset;
+        }
+
+        .EveryDeviceInner {
+            @include setWidth();
+            margin: 0 auto;
+
+            h2 {
+                color: $textColor2;
+                font-size: 128px;
+                line-height: 150px;
+                padding: 10px 20px 0;
+                transition: $transitionLong;
+
+                @media screen and (max-width: 1460px) {
+                    font-size: 96px;
+                    line-height: 120px;
+                    padding: 10px 0 0 16px;
+                }
+                @media screen and (max-width: 1024px) {
+                    font-size: 86px;
+                    line-height: 90px;
+                    padding: 29px 0 40px;
+                }
+                @media screen and (max-width: 670px) {
+                    font-size: 64px;
+                    line-height: 70px;
+                }
+                @media screen and (max-width: 500px) {
+                    font-size: 48px;
+                    line-height: 60px;
+                }
+            }
+            .EveryDeviceContent {
+                width: 100%;
+                max-width: 384px;
+                padding: 0 16px 0 24px;
+                margin: 60px 0 0;
+                color: $textColor2;
+                font-size: $textSizeNormal;
+                line-height: 24px;
+                transition: $transitionLong;
+
+                @media screen and (max-width: 1460px) {
+                    margin: 40px 0 0;
+                }
+                @media screen and (max-width: 1280px) {
+                    margin: 0;
+                    padding: 0 5px;
+                }
+                @media screen and (max-width: 1024px) {
+                    padding: 0 0 0 4px;
+                }
+            }
+        }
+    }
+    .TerraformSphere {
+        width: 100%;
+        background-color: rgb(25, 25, 25);
+
+        .TerraformSphereInner {
+            @include setWidth();
+            position: relative;
+            margin: 0 auto;
+
+            .TerraformSphereRect {
+                position: absolute;
+                top: -200px;
+                right: 130px;
+                transition: $transitionLong;
+                z-index: 2;
+
+                @media screen and (max-width: 1680px) {
+                    right: 30px;
+                }
+                @media screen and (max-width: 1460px) {
+                    top: -200px;
+                }
+                @media screen and (max-width: 767px) {
+                    top: -300px;
+                    right: 100px;
+                }
+                @media screen and (max-width: 670px) {
+                    display: none;
+                }
+            }
+            .TerraformSphereLine {
+                position: absolute;
+                top: 570px;
+                left: 190px;
+                transition: $transitionLong;
+
+                @media screen and (max-width: 670px) {
+                    left: 90vw;
+                }
+            }
+            .TerraformSphereSphere {
+                width: 100%;
+                @include myFlex();
+                padding: 60px 30px;
+                transition: $transitionLong;
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    .TerraformDescription {
+        width: 100%;
+        background-color: rgb(25, 25, 25);
+
+        .TerraformDescriptionInner {
+            @include setWidth();
+            @include myFlex(flex-end);
+            margin: 0 auto;
+            position: relative;
+
+            @media screen and (max-width: 670px) {
+                justify-content: flex-start;
+            }
+
+            p {
+                width: 384px;
+                margin: 0 0 50px;
+                padding: 0 16px;
+                color: $textColor1;
+                font-size: $textSizeNormal;
+                line-height: 24px;
+            }
+        }
+    }
+    .IntuitivePowerful {
+        width: 100%;
+        position: relative;
+        background-color: rgb(25, 25, 25);
+
+        .IntuitivePowerfulTitle {
+            width: 100%;
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            z-index: 1;
+
+            @media screen and (max-width: 1024px) {
+                bottom: 60px;
+            }
+
+            .IntuitivePowerfulInner {
+                @include setWidth();
+                margin: 0 auto;
+
+                h2 {
+                    color: rgb(25, 25, 25);
+                    font-size: 128px;
+                    line-height: 144px;
+                    margin: 0 0 0 26px;
+                    @media screen and (max-width: 1680px) {
+                        font-size: 96px;
+                        line-height: 128px;
+                    }
+                    @media screen and (max-width: 1280px) {
+                        font-size: 96px;
+                        line-height: 104px;
+                    }
+                    @media screen and (max-width: 1024px) {
+                        font-size: 86px;
+                        line-height: 90px;
+                    }
+                    @media screen and (max-width: 670px) {
+                        font-size: 64px;
+                        line-height: 70px;
+                    }
+                    @media screen and (max-width: 500px) {
+                        font-size: 48px;
+                        line-height: 60px;
+                    }
+                }
+            }
+        }
+        .IntuitivePowerfulMedia {
+            @include myFlex();
+        }
+    }
+    .Clouds {
+        width: 100%;
+        min-height: 948px;
+        background: url(../img/clouds.jpg) center / cover no-repeat fixed
+            rgb(49, 49, 49);
+        position: relative;
+        top: 0;
+        z-index: 2;
+
+        @media screen and (max-width: 1280px) {
+            min-height: 668px;
+        }
+        @media screen and (max-width: 960px) {
+            background-attachment: unset;
+        }
+
+        .CloudsInner {
+            @include setWidth();
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+
+            .CloudsPannelTop {
+                width: 768px;
+                position: absolute;
+                top: -240px;
+                right: -260px;
+                @media screen and (max-width: 1460px) {
+                    display: none;
+                }
+
+                .img:first-child {
+                    position: absolute;
+                    top: -120px;
+                    left: 2px;
+                    z-index: 2;
+                }
+                .img:last-child {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+            }
+            h2 {
+                font-size: 395px;
+                color: $textColor2;
+
+                &.CloudsHeader1 {
+                    position: absolute;
+                    top: -100px;
+                    left: 0;
+                    transition: $transitionLong;
+                    @media screen and (max-width: 1680px) {
+                        top: -40px;
+                        font-size: 295px;
+                    }
+                    @media screen and (max-width: 1460px) {
+                        top: -20px;
+                        left: 0;
+                    }
+                    @media screen and (max-width: 1280px) {
+                        font-size: 228px;
+                        top: 40px;
+                        left: 14px;
+                    }
+                    @media screen and (max-width: 670px) {
+                        font-size: 168px;
+                    }
+                    @media screen and (max-width: 500px) {
+                        font-size: 128px;
+                    }
+                }
+                &.CloudsHeader2 {
+                    position: absolute;
+                    top: 140px;
+                    right: -30px;
+                    transition: $transitionLong;
+                    @media screen and (max-width: 1680px) {
+                        top: 120px;
+                        right: -30px;
+                        font-size: 295px;
+                    }
+                    @media screen and (max-width: 1460px) {
+                        top: 180px;
+                        right: -30px;
+                    }
+                    @media screen and (max-width: 1280px) {
+                        font-size: 228px;
+                        top: 220px;
+                        right: 10px;
+                    }
+                    @media screen and (max-width: 670px) {
+                        font-size: 168px;
+                    }
+                    @media screen and (max-width: 500px) {
+                        font-size: 128px;
+                    }
+                }
+            }
+        }
+        .CloudsLine {
+            position: absolute;
+            top: 550px;
+            left: 370px;
+            transition: $transitionLong;
+            @media screen and (max-width: 1460px) {
+                top: 550px;
+                left: 370px;
+            }
+            @media screen and (max-width: 1280px) {
+                display: none;
+            }
+        }
+    }
+    .EngagingImmersive {
+        width: 100%;
+        background-color: rgb(204, 204, 204);
+        min-height: 820px;
+        position: relative;
+        @media screen and (max-width: 670px) {
+            min-height: 468px;
+        }
+
+        .EngagingImmersiveInner {
+            @include setWidth();
+            position: relative;
+            padding: 140px 40px 0 8px;
+            margin: 0 auto;
+
+            h2 {
+                font-size: 128px;
+                line-height: 150px;
+                color: $textColor2;
+                @media screen and (max-width: 1460px) {
+                    padding: 60px 40px 0 8px;
+                }
+                @media screen and (max-width: 1280px) {
+                    font-size: 96px;
+                    line-height: 104px;
+                    padding: 29px 0 0;
+                }
+                @media screen and (max-width: 1024px) {
+                    font-size: 86px;
+                    line-height: 90px;
+                }
+                @media screen and (max-width: 670px) {
+                    font-size: 64px;
+                    line-height: 70px;
+                }
+                @media screen and (max-width: 500px) {
+                    font-size: 48px;
+                    line-height: 60px;
+                }
+            }
+            .EngagingImmersiveContent {
+                width: 100%;
+                max-width: 384px;
+                padding: 0 16px;
+                margin: 60px 0 0;
+                @media screen and (max-width: 1024px) {
+                    padding: 0 0 0 4px;
+                }
+                @media screen and (max-width: 670px) {
+                    margin: 40px 0 0;
+                }
+
+                p {
+                    color: $textColor2;
+                    font-size: $textSizeNormal;
+                    line-height: 24px;
+                }
+            }
+        }
+        .EngagingImmersiveMedia {
+            position: absolute;
+            top: 200px;
+            right: 0;
+
+            @media screen and (max-width: 670px) {
+                display: none;
+            }
+
+            img {
+                max-width: 1000px;
+
+                @media screen and (max-width: 1680px) {
+                    max-width: 50vw;
+                }
+                @media screen and (max-width: 1024px) {
+                    max-width: 70vw;
+                }
+                @media screen and (max-width: 767px) {
+                    max-width: 60vw;
+                }
+            }
+        }
+    }
+    .Space {
+        width: 100%;
+        min-height: 768px;
+        background: url(../img/space.jpg) center / cover no-repeat fixed
+            rgb(0, 0, 0);
+        @media screen and (max-width: 500px) {
+            min-height: 568px;
+        }
+
+        .SpaceInner {
+            @include setWidth();
+            position: relative;
+            margin: 0 auto;
+
+            .Polygon {
+                position: absolute;
+                top: -95px;
+                left: 340px;
+                transition: $transitionLong;
+                @media screen and (max-width: 1460px) {
+                    top: -75px;
+                    left: 50%;
+                    margin: 0 0 0 -215px;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                    max-width: 50%;
+                    left: 30%;
+                    margin: 0;
+                }
+                img {
+                    max-width: 100%;
+                }
+            }
+            .SpaceLine {
+                position: absolute;
+                top: 185px;
+                left: 165px;
+                transition: $transitionLong;
+                @media screen and (max-width: 1460px) {
+                    top: 40vh;
+                    left: 65px;
+                }
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
+            }
+            .WhiteRect {
+                position: absolute;
+                top: -125px;
+                left: 620px;
+                transition: $transitionLong;
+                @media screen and (max-width: 1460px) {
+                    top: 80px;
+                    left: auto;
+                    right: 60px;
+                }
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
+            }
+            .WhiteRhombus {
+                position: absolute;
+                top: 530px;
+                right: 85px;
+                transition: $transitionLong;
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
+            }
+            .PurpleRect {
+                position: absolute;
+                top: 370px;
+                right: 220px;
+                transition: $transitionShort;
+                @media screen and (max-width: 1460px) {
+                    top: 470px;
+                    right: 220px;
+                }
+                @media screen and (max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .Media {
+        position: relative;
+        width: 100%;
+        margin: 0 0 160px;
+
+        @media screen and (max-width: 1024px) {
+            margin: 0 0 60px;
+        }
+        @media screen and (max-width: 960px) {
+            margin: 0;
+        }
+
+        .MediaInner {
+            @include setWidth(false);
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            .MediaCard {
+                width: 25%;
+                height: 384px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: $transitionShort;
+                @media screen and (max-width: 1024px) {
+                    width: 50%;
+                }
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                    height: auto;
+                    min-height: 260px;
+                }
+
+                h2 {
+                    font-size: 32px;
+                    line-height: 40px;
+                    width: 100%;
+                    padding: 16px;
+                    margin: 2px 0 0;
+                    @media screen and (max-width: 1280px) {
+                        font-size: 28px;
+                    }
+                    @media screen and (max-width: 1024px) {
+                        padding: 19px 28px;
+                    }
+                }
+                .MediaLabel {
+                    @include myFlex(flex-start);
+                    padding: 16px;
+
+                    @media screen and (max-width: 1024px) {
+                        padding: 0 30px 30px;
+                    }
+
+                    svg {
+                        margin: 0 16px 0 0;
+                    }
+                    span {
+                        font-weight: normal;
+                        font-size: 14px;
+                    }
+                }
+
+                &:nth-child(1) {
+                    background-color: $backgroundColor;
+                    color: $textColor1;
+                    fill: $textColor1;
+
+                    &:hover {
+                        background-color: rgb(255, 255, 255);
+                        color: $textColor2;
+                        fill: $textColor2;
+                    }
+                }
+                &:nth-child(2) {
+                    background-color: rgb(57, 57, 57);
+                    color: $textColor1;
+                    fill: $textColor1;
+
+                    &:hover {
+                        background-color: rgb(255, 255, 255);
+                        color: $textColor2;
+                        fill: $textColor2;
+                    }
+                }
+                &:nth-child(3) {
+                    background-color: rgb(118, 118, 118);
+                    color: $textColor2;
+                    fill: $textColor2;
+
+                    &:hover {
+                        background-color: rgb(255, 255, 255);
+                    }
+                }
+                &:nth-child(4) {
+                    background-color: rgb(204, 204, 204);
+                    color: $textColor2;
+                    fill: $textColor2;
+
+                    &:hover {
+                        background-color: rgb(255, 255, 255);
+                    }
+                }
+            }
+        }
+    }
+    .News {
+        width: 100%;
+
+        .NewsInner {
+            @include setWidth();
+            margin: 0 auto 200px auto;
+            display: flex;
+            flex-wrap: wrap;
+            @media screen and (max-width: 960px) {
+                margin: 0 auto;
+            }
+
+            h2 {
+                width: 575px;
+                font-size: 32px;
+                line-height: 40px;
+                color: $textColor1;
+                padding: 0 0 0 16px;
+                @media screen and (max-width: 1680px) {
+                    width: 50%;
+                }
+                @media screen and (max-width: 960px) {
+                    width: 100%;
+                    margin: 30px 0;
+                    font-size: 24px;
+                    line-height: 34px;
+                    padding: 0;
+                }
+            }
+
+            .NewsContent {
+                flex: 1;
+                padding: 0 330px 35px 208px;
+                @media screen and (max-width: 1680px) {
+                    width: 50%;
+                    padding: 0 16px 35px;
+                }
+                @media screen and (max-width: 1024px) {
+                    padding: 0 30px 35px;
+                }
+                @media screen and (max-width: 960px) {
+                    width: 100%;
+                    padding: 0 0 35px;
+                }
+
+                p {
+                    width: 100%;
+                    color: $textColor1;
+                    font-size: $textSizeNormal;
+                    line-height: 24px;
+                }
+                a {
+                    width: 100%;
+                    margin: 70px 0 0;
+                    display: flex;
+                    color: $textColor1;
+                    @media screen and (max-width: 960px) {
+                        margin: 30px 0 0;
+                    }
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+
+                    img {
+                        margin: 0 16px 0 0;
+                    }
+                    span {
+                        font-size: 16px;
+                        font-family: "Segoe UI Mono", mono;
+                        font-weight: normal;
+                        @media screen and (max-width: 960px) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+
+    .FooterInner {
+        @include setWidth();
+        margin: 0 auto;
+        @include myFlex(space-between);
+        flex-wrap: wrap;
+
+        .Logo {
+            width: 190px;
+            height: 48px;
+            @media screen and (max-width: 1280px) {
+                width: 40px;
+            }
+
+            @include myFlex(flex-start);
+
+            svg {
+                @include myFlex();
+
+                &:hover rect:nth-child(1) {
+                    fill: rgb(242, 80, 34);
+                }
+                &:hover rect:nth-child(2) {
+                    fill: rgb(127, 186, 0);
+                }
+                &:hover rect:nth-child(3) {
+                    fill: rgb(0, 164, 239);
+                }
+                &:hover rect:nth-child(4) {
+                    fill: rgb(255, 185, 0);
+                }
+
+                .microsoft_logo {
+                    transition: $transitionShort;
+                    fill: white;
+                }
+            }
+        }
+        .FooterNavigation {
+            flex: 1;
+            padding: 0 100px 0 0;
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+                flex: unset;
+                order: 3;
+                padding: 0;
+            }
+            @media screen and (max-width: 500px) {
+                order: unset;
+            }
+
+            ul {
+                width: 100%;
+                @include myFlex(space-between);
+
+                @media screen and (max-width: 670px) {
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                }
+
+                a {
+                    color: $textColor1;
+                    font-size: 12px;
+                    line-height: 48px;
+                    font-weight: 400;
+                    position: relative;
+                    @media screen and (max-width: 670px) {
+                        line-height: 30px;
+                        margin: 0 20px 0 0;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -6px;
+                        width: 100%;
+                        opacity: 0;
+                        height: 1px;
+                        background-color: $textColor1;
+                        transition: $transitionShort;
+                    }
+
+                    &:hover {
+                        opacity: 0.6;
+
+                        &::after {
+                            opacity: 1;
+                            bottom: -2px;
+                        }
+                    }
+                }
+            }
+        }
+        .Social {
+            display: flex;
+
+            a {
+                width: 48px;
+                height: 48px;
+                @include myFlex(flex-end);
+                @media screen and (max-width: 500px) {
+                    justify-content: flex-start;
+                    margin: 0 0 20px 0;
+                }
+
+                &:nth-child(1):hover path {
+                    fill: rgb(0, 119, 181);
+                }
+                &:nth-child(2):hover path {
+                    fill: rgb(234, 76, 137);
+                }
+                &:nth-child(3):hover path {
+                    fill: rgb(56, 161, 243);
+                }
+                &:nth-child(4):hover path {
+                    fill: rgb(0, 171, 108);
+                }
+                &:nth-child(5):hover path {
+                    fill: rgb(59, 89, 152);
+                }
+
+                svg {
+                    width: 20px;
+
+                    path {
+                        fill: $textColor1;
+                    }
+                }
+            }
+        }
+    }
+}

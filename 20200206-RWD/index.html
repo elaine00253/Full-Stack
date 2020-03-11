@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RWD-flex</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        a {
+            color: rgb(62, 92, 146);
+            font-size: large;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline rgb(62, 92, 146);
+        }
+
+        a:active {
+            color: palevioletred;
+            text-decoration: underline palevioletred;
+        }
+
+        a:visited {
+            color: rgb(38, 143, 125);
+        }
+
+        .img_style {
+            background-position: center;
+            background-size: cover;
+            border-radius: 10px;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .display_F {
+            display: flex;
+        }
+
+        .mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            transition: 1s;
+        }
+
+        .mask:hover {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        /* ---------------------------------------------------- */
+
+        #menu {
+            width: 366px;
+            height: 100vh;
+            padding: 50px;
+            background-color: rgb(126, 190, 241);
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #logo {
+            width: 150px;
+            height: 150px;
+            background-image: url('img/cat1.jpg');
+            margin: 0 0 40px 0;
+        }
+
+        #context {
+            width: calc(100% - 366px);
+            /*扣掉選單的寬*/
+            height: 100vh;
+            background-color: rgb(210, 255, 240);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            width: 965px;
+            height: 570px;
+            background-color: lightblue;
+        }
+
+        #boxX {
+            background-image: url('img/cat2.jpg');
+        }
+
+        #boxY {
+            background-image: url('img/cat3.jpg');
+            margin: 0 10px;
+        }
+
+        #boxZ {
+            background-image: url('img/cat4.jpg');
+        }
+
+        /* -------------------------------------- */
+
+        .box {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 1330px) {
+            #container {
+                width: 800px;
+                height: 580px;
+                flex-wrap: wrap;
+            }
+
+            #boxX {
+                margin: 0 0 10px 0;
+            }
+
+            #boxY {
+                width: calc(50% - 5px);
+                /*寬度一半扣掉margin一半*/
+                margin: 0 10px 0 0;
+            }
+
+            #boxZ {
+                width: calc(50% - 5px);
+                /*寬度一半扣掉margin一半*/
+            }
+
+            .box {
+                height: calc(50% - 5px);
+                /*高度一半扣掉margin一半*/
+            }
+        }
+
+        @media screen and (max-width: 1165px) {
+            ul {
+                display: flex;
+                /* 橫向選單 */
+            }
+
+            #all {
+                flex-wrap: wrap;
+            }
+
+            #menu {
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            #menu-img {
+                display: none;
+            }
+
+            #logo {
+                width: 80px;
+                height: 80px;
+                margin: unset;
+            }
+
+            #context {
+                width: 100%;
+                height: calc(100vh - 100px);
+                flex-wrap: wrap;
+            }
+
+            #container {
+                width: 700px;
+                height: 800px;
+            }
+        }
+
+        @media screen and (max-width: 699px) {
+            ul {
+                display: unset;
+            }
+
+            #menu {
+                height: 80px;
+                padding: 15px;
+                position: fixed;
+
+                flex-flow: column wrap;
+                /*為了讓Logo左右置中*/
+                justify-content: center;
+                align-items: unset;
+            }
+
+            #menu-img {
+                width: 40px;
+                height: 40px;
+                background-image: url("img/1828850.svg");
+                display: unset;
+            }
+
+            #menu-img:hover~#link {
+                /* display: block; */
+                left: 0;
+            }
+
+            #link:hover {
+                /* display: block; */
+                left: 0;
+            }
+
+            #logo {
+                width: 50px;
+                height: 50px;
+                margin-right: 40px;
+                /*為了讓Logo左右置中*/
+            }
+
+            #link {
+                /* display: none; */
+                position: fixed;
+                left: -100px;
+                /*為了讓選單從左邊滑出*/
+                top: 80px;
+                background-color: rgb(183, 255, 248);
+                transition: 1s;
+            }
+
+            #context {
+                height: unset;
+                padding-top: 80px;
+                /*fixed的menu高*/
+            }
+
+            #container {
+                width: 100%;
+                height: unset;
+                flex-direction: column;
+            }
+
+            #boxX {
+                margin: unset;
+            }
+
+            #boxY {
+                margin: unset;
+                width: 100%;
+            }
+
+            #boxZ {
+                width: 100%;
+            }
+
+            .box {
+                height: 50vh;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="all" class="display_F">
+        <div id="menu" class="display_F">
+            <div id="menu-img" class="img_style"></div>
+            <div id="logo" class="img_style"></div>
+            <div id="link">
+                <ul>
+                    <li><a href="http://www.google.com" target="_blank">Google</a></li>
+                    <li><a href="http://tw.yahoo.com" target="_blank">Yahoo</a></li>
+                    <li><a href="https://www.apple.com/tw/" target="_blank">Apple</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="context" class="display_F">
+            <div id="container" class="display_F">
+                <div id="boxX" class="box img_style">
+                    <div class="mask"></div>
+                </div>
+                <div id="boxY" class="box img_style">
+                    <div class="mask"></div>
+                </div>
+                <div id="boxZ" class="box img_style">
+                    <div class="mask"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

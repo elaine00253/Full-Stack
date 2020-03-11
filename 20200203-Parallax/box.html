@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body{
+            margin: 0;    
+            background-color: rgba(135, 206, 235 , 0.5);
+        }
+        #all{
+            width: 80%;
+            height: 300vh;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #Logo{
+            width: 160px;
+            height: 160px;
+            border-radius: 80px;
+            border: 2px solid whitesmoke;
+            background-color: aquamarine;
+            background-image: url("img/cat1.jpg");
+            background-position: center;
+            background-size: cover;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 20px; left: calc(10% + 20px);
+        }
+        #button_container{
+            position: fixed;
+            top: 75px; right: calc(10% + 75px);
+        }
+        #buttonC{
+            margin-right: 0;
+        }
+        #boxA{
+            background-image: url("img/cat3.jpg");
+        }
+        #boxB{
+            background-image: url("img/cat4.jpg");
+        }
+        #boxC{
+            background-image: url("img/cat2.jpg");
+        }
+
+    /* ------------------------------------------------------------- */
+        .nav_button-css{
+            float: left;
+            background-color: rgba(135, 206, 235 , 0.6);
+            padding: 0 40px;
+            line-height: 50px;
+            border: 2px solid whitesmoke;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            margin-right: 15px;
+            transition: 0.5s;
+            text-decoration:none;
+            color:  rgb(23, 77, 100);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            font-size: larger;
+            font-weight: bolder;
+        }    
+        .nav_button-css:hover{
+            background-color: rgba(31, 85, 129, 0.5);
+            color:  rgb(255, 255, 255);
+            text-shadow: 2px 2px 2px rgba(32, 50, 58, 0.8);
+        }
+        .box-css{
+            width: 100%;
+            height: 50vh;
+            background-color: aquamarine;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding-top: 50vh;
+        }
+        .mask-css{
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: calc(25vh - 25px) calc(50% - 75px);
+        }
+        .mask_button-css{
+            width: 150px;
+            height: 50px;
+            background-color: rgba(95, 158, 160, 0.7);
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+        .mask_button-css:hover{
+            background-color: rgb(129, 215, 218);
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div id="Logo"></div>
+        <div id="button_container">
+            <a id="buttonA" class="nav_button-css" href="#boxA">A</a>
+            <a id="buttonB" class="nav_button-css" href="#boxB">B</a>
+            <a id="buttonC" class="nav_button-css" href="#boxC">C</a>
+        </div>
+        <div id="boxA" class="box-css">
+            <div class="mask-css">
+                <div class="mask_button-css"></div>
+            </div>
+        </div>
+        <div id="boxB" class="box-css">
+            <div class="mask-css">
+                <div class="mask_button-css"></div>
+            </div>
+        </div>
+        <div id="boxC" class="box-css">
+            <div class="mask-css">
+                <div class="mask_button-css"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

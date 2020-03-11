@@ -1,0 +1,526 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    font-family: 'Segoe UI', SegoeUI, 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.img_style {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#headarea {
+    width: 84%;
+}
+
+a {
+    color: unset;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #262626;
+}
+
+p {
+    margin: 0 0 10px 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 46px;
+    line-height: 56px;
+    padding: 37px 0 12px 0;
+    font-weight: 600;
+    overflow: hidden;
+    box-sizing: content-box;
+    max-height: 112px;
+    font-weight: 600;
+    opacity: .95;
+}
+
+h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    opacity: .95;
+    padding: 38px 0 4px 0;
+}
+
+.header_span {
+    padding: 0 0 2px 0;
+    /* 標題文字與自訂下畫線距離 */
+}
+
+#headarea {
+    padding: 1px 0;
+}
+
+#headarea li a:active, #logo:active, #headarea li a:focus, #logo:focus {
+    /*點到或選到a和logo 出現虛線框*/
+    outline: 1px dashed #262626;
+}
+
+#headarea li a:focus .header_span, #headarea li a:hover .header_span {
+    /*移到或選到a span出現下畫線*/
+    border-bottom: 2px solid #262626;
+}
+
+#menu_left li a {
+    /*調整選單虛線框大小*/
+    padding: 16px 8px 10px;
+}
+
+#menu_right li a {
+    /*調整選單虛線框大小*/
+    padding: 14px 8px 14px;
+}
+
+#menu_right li:first-child a {
+    /*調整選單all_microsoft虛線框大小*/
+    padding: 14px 20px 14px 16px;
+}
+
+#menu_right li:last-child a {
+    /*調整選單login虛線框大小*/
+    padding: 8px 0 8px 8px;
+}
+
+#menu_btn {
+    /*隱藏左邊選單圖*/
+    display: none;
+}
+
+#search_img_m {
+    /*隱藏左邊搜索圖*/
+    display: none;
+}
+
+#logo {
+    padding: 16px 6px 16px 10px;
+}
+
+#logo_img {
+    width: 108px;
+}
+
+#menu_right {
+    margin-left: auto;
+}
+
+#menu_right li {
+    padding: 0 0 0 20px;
+}
+
+#login span {
+    margin-right: 10px;
+}
+
+#all_microsoft {
+    position: relative;
+}
+
+#all_microsoft::after {
+    /*所有microsoft的右邊圖標*/
+    font-family: "MWF-MDL2";
+    content: "";
+    position: absolute;
+    right: 5px;
+    font-size: 8px;
+    display: inline-block;
+    color: currentColor;
+    font-weight: 700;
+    padding-top: 7px;
+}
+
+/*===main的部份===*/
+
+#primaryarea {
+    width: 84%;
+    /* width: 90%; */
+}
+
+section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.primaryr1 {
+    width: 100%;
+    height: 31vw;
+    margin: 0 0 50px 0;
+    background-image: url("../img/banner2.webp");
+    background-color: #e6e6e6;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 90px;
+}
+
+.banner_p {
+    margin: 0 0 22px 0;
+}
+
+.banner_a:link, .banner_a:focus, .banner_a:hover, .banner_a:active, .banner_a:visited {
+    /*因為使用icon套件會蓋過banner a 的顏色設定，所以要自己宣告蓋過*/
+    color: white;
+}
+
+.banner_a {
+    background-color: black;
+    padding: 10px 25px;
+    position: relative;
+}
+
+.banner_a::before {
+    background: white;
+    content: "";
+    display: none;
+    height: 2px;
+    position: absolute;
+    left: 25px; 
+    bottom: 8px;
+    width: 60px;
+    transition: .7s;
+}
+
+.banner_a::after {
+    font-size: 11px;
+    margin-top: 3px;
+    margin-left: 3px;
+    display: inline-block;
+    position: relative;
+    right: 0;
+    content: "";
+    vertical-align: top;
+    font-family: "MWF-MDL2";
+    transition: .7s;
+}
+
+.banner_a:hover::after {
+    right: -5px;
+}
+
+.banner_a:hover::before {
+    display: block;
+}
+
+.primaryr3 {
+    width: 100%;
+    height: 31vw;
+    margin: 0 0 50px 0;
+    background-image: url("../img/xbox_one_s.webp");
+    background-color: #c8c8c8;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 90px;
+}
+
+.primaryr2, .primaryr4 {
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 0 50px 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: calc(25% - 20px);
+}
+
+.card:hover {
+    opacity: 0.9;
+}
+
+.card span {
+    position: relative;
+}
+
+.card span::before {
+    background: currentColor;
+    content: "";
+    display: none;
+    height: 2px;
+    position: absolute;
+    left: 1px;
+    bottom: -2px;
+    width: 60px;
+    transition: .7s;
+}
+
+.card span::after {
+    font-size: 11px;
+    margin-top: 3px;
+    margin-left: 3px;
+    display: inline-block;
+    position: relative;
+    right: 0;
+    content: "";
+    vertical-align: top;
+    font-family: "MWF-MDL2";
+    transition: .7s;
+}
+
+.card span:hover::after {
+    right: -5px;
+}
+
+.card span:hover::before {
+    display: block;
+}
+
+.primaryr2 span, .primaryr4 span {
+    color: #0067b8;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#sub_title {
+    width: 100%;
+    margin: 0;
+    font-size: 24px;
+    line-height: 28px;
+    padding: 0 0 24px 0;
+    font-weight: 600;
+}
+
+.primaryr5 {
+    width: 100%;
+    align-items: center;
+    margin: 0 0 50px 0;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.primaryr5 a {
+    margin: 0 0 0 10px;
+}
+
+#footerarea {
+    background-color: #f2f2f2;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0 20px 0;
+    color: #616161;
+}
+
+#footerarea ul {
+    font-weight: 600;
+}
+
+#footerarea a {
+    font-weight: normal;
+    color: #616161;
+    padding: 2px;
+}
+
+#footerarea a:hover {
+    text-decoration: underline rgba(0, 0, 0, 0.9);
+}
+
+#footerarea a:active, #footerarea a:focus {
+    outline: 1px dashed rgba(0, 0, 0, 0.9);
+    text-decoration: underline rgba(0, 0, 0, 0.9);
+}
+
+#footer_top {
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#footer_top ul {
+    width: 16.33333333%;
+    padding: 0 12px;
+}
+
+#footer_top li {
+    padding: 10px 10px 5px 0;
+}
+
+#footer_lang {
+    width: 84%;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+#lang::before {
+    content: "";
+    font-family: "MWF-MDL2";
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#footer_lang ul {
+    display: flex;
+    margin: 0 0 0 auto;
+}
+
+@media screen and (max-width: 1083px) {
+    #headarea {
+        width: 94%;
+    }
+    #primaryarea {
+        width: 100%;
+    }
+    #menu_right li {
+        padding: 0 0 0 5px;
+    }
+    .menu_right_span {
+        display: none;
+    }
+    #menu_right li:last-child a {
+        padding: 8px;
+    }
+    #all_microsoft span {
+        display: block;
+    }
+    .primaryr1, .primaryr3 {
+        height: 54vw;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .primaryr2, .primaryr4 {
+        width: 90%;
+    }
+    .primaryr2 span, .primaryr4 span {
+        margin: 0 0 30px 0;
+    }
+    .card {
+        width: calc(50% - 20px);
+    }
+    .primaryr5 {
+        width: 94%;
+    }
+    #footer_top {
+        width: 97%;
+    }
+    #footer_top ul {
+        width: 33%;
+        padding-bottom: 40px;
+    }
+    #footer_lang {
+        width: 94%;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 859.98px) {
+    #headarea {
+        width: 100%;
+    }
+    #menu_btn {
+        display: block;
+        margin: 0 5px;
+        padding: 9px;
+    }
+    #search_img_m {
+        display: block;
+        padding: 9px;
+        margin: 0 6px 0 0;
+        /*往右推 使左右選單寬度相同 logo才置中*/
+    }
+    #menu_btn:active, #search_img_m:active, #menu_btn:focus, #search_img_m:focus {
+        outline: 1px dashed #262626;
+    }
+    #menu_left {
+        display: none;
+    }
+    #search {
+        display: none;
+    }
+    #all_microsoft {
+        display: none;
+    }
+    #menu_right {
+        margin-left: unset;
+    }
+    #logo {
+        margin: 0 auto;
+    }
+    #lang {
+        width: 100%;
+    }
+    #footer_lang ul {
+        display: flex;
+        margin: 0 0 0 -10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .primaryr1 {
+        height: 96vw;
+        background-image: url(../img/banner2-m.webp);
+        background-repeat: no-repeat;
+        background-position: top;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 0 85px 0;
+    }
+    .primaryr3 {
+        height: 96vw;
+        background-image: url(../img/xbox_one_s_m.webp);
+        background-repeat: no-repeat;
+        background-position: top;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 0 85px 0;
+    }
+}
+
+@media screen and (max-width: 539.98px) {
+    h2 {
+        font-size: 20px;
+    }
+    .primaryr1, .primaryr3 {
+        height: 110vw;
+    }
+    .card {
+        width: 100%;
+    }
+    #footer_top ul {
+        width: 100%;
+        padding-bottom: 40px;
+    }
+    #footer_lang li {
+        padding: 8px;
+    }
+}

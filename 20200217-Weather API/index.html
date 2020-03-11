@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(205, 224, 243);
+        }
+
+        h1 {
+            margin: 0;
+            line-height: 50px;
+            font-size: 35px;
+        }
+
+        h2 {
+            margin: 0;
+            line-height: 35px;
+            font-size: x-large;
+        }
+
+        #all {
+            font-family: "微軟正黑體";
+            font-weight: 600;
+            color: rgb(88, 88, 88);
+        }
+
+        #now {
+            font-size: 50px;
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            min-width: 9%;
+            box-shadow: 3px 5px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            line-height: 30px;
+            padding: 15px 20px;
+            margin: 10px;
+            background-color: rgb(251, 255, 232);
+            font-size: 20px;
+        }
+
+        #weather_img {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <div id="now"></div>
+        <div id="container">
+
+        </div>
+    </div>
+
+    <script>
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-909CE8F7-B0E1-4011-B18C-6AA403A8D6BF')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (weather_data) {
+
+                let locations = weather_data.records.location;
+
+                let Now = new Date();//現在日期時間
+                let NowString = Now.getFullYear() + "/" + Now.getMonth() + 1 + "/" + Now.getDate() + " " + Now.getHours() + ":" + (Now.getMinutes() < 10 ? "0" + Now.getMinutes() : Now.getMinutes());
+                let nowHTML = document.querySelector("#now");
+                nowHTML.innerHTML += `現在時間 ${NowString}`
+
+                let container = document.querySelector("#container");
+                locations.forEach(location => {
+                    let locationName = location.locationName;//地點
+                    let Wx = location.weatherElement[0].time[0].parameter.parameterName;//天氣
+                    let MinT = location.weatherElement[2].time[0].parameter.parameterName;//最低溫
+                    let MaxT = location.weatherElement[4].time[0].parameter.parameterName;//最高溫
+                    let CI = location.weatherElement[3].time[0].parameter.parameterName;//舒適度
+                    let WxValue = location.weatherElement[0].time[0].parameter.parameterValue;//天氣代碼
+
+                    let WImg;
+                    switch (WxValue) {//判斷天氣圖片
+                        case '1':
+                            WImg = "https://ssl.gstatic.com/onebox/weather/48/sunny.png";
+                            break;
+                        case '2': case '3':
+                            WImg = "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                            break;
+                        case '4': case '5': case '6': case '7':
+                            WImg = "https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
+                            break;
+                        default:
+                            WImg = "https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png";
+                            break;
+                    }
+
+                    container.innerHTML += `
+                        <div class="card">
+                            <h1 id="location">${locationName}</h1>
+                            <div id="weather">
+                                <h2>${Wx}</h2>
+                                <div id="weather_img">
+                                    <img src="${WImg}" style="width: 56px">
+                                </div>
+                            </div>
+                            <div>   
+                                <div id="maxT">最高溫：${MaxT}度</div>
+                                <div id="minT">最低溫：${MinT}度</div>
+                            </div>
+                            <div id="comfort">${CI}</div>
+                        </div>`;
+                });
+            });
+
+    </script>
+</body>
+
+</html>
